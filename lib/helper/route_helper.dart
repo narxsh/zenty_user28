@@ -197,10 +197,10 @@ class RouteHelper {
       '$providerReviewScreen?sub_categories=$subcategories&provider_id=$providerId';
   static String getProviderAvailabilityScreen(String subcategories,String providerId) =>
       '$providerAvailabilityScreen?sub_categories=$subcategories&provider_id=$providerId';
-  static String getCreatePostScreen({String? schedule}){
+  static String getCreatePostScreen({String? schedule, String? categoryId, String? serviceId}){
     List<int> encoded = utf8.encode(jsonEncode(schedule));
     String data = base64Encode(encoded);
-    return "$createPost?schedule=$data";
+    return "$createPost?schedule=$data&categoryid=$categoryId&serviceid=$serviceId";
   }
   static String getCreatePostSuccessfullyScreen() => createPostSuccessfully;
   static String getMyPostScreen({String? fromNotification}) => '$myPost?fromNotification=$fromNotification';

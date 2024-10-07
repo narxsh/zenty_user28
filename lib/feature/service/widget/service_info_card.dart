@@ -177,6 +177,8 @@ class ServiceInformationCard extends StatelessWidget {
                       const SizedBox(height: Dimensions.paddingSizeExtraSmall),
                       Row(mainAxisAlignment: MainAxisAlignment.end,
                         children: [
+
+                          service.isBidding == 0 ?
                           ElevatedButton(
                             onPressed: () {
                               showModalBottomSheet(
@@ -188,6 +190,23 @@ class ServiceInformationCard extends StatelessWidget {
                               );
                             },
                             child: Text('${"add".tr} +',style: ubuntuRegular.copyWith(color: Colors.white),),
+                          ) : 
+                          ElevatedButton(
+                            onPressed: () {
+                              // showModalBottomSheet(
+                              //     context: context,
+                              //     useRootNavigator: true,
+                              //     isScrollControlled: true,
+                              //     backgroundColor: Colors.transparent,
+                              //     builder: (context) => ServiceCenterDialog(service: service, isFromDetails: true,)
+                              // );
+                              if(Get.find<AuthController>().isLoggedIn()){
+                                Get.toNamed(RouteHelper.getCreatePostScreen(categoryId: service.categoryId, serviceId: service.id));
+                              }else{
+                                Get.toNamed(RouteHelper.getNotLoggedScreen(RouteHelper.main.tr,"create_post"));
+                              }
+                            },
+                            child: Text('Post Bid',style: ubuntuRegular.copyWith(color: Colors.white),),
                           ),
                         ],
                       ),

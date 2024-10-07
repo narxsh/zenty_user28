@@ -83,6 +83,7 @@ class Service {
   double? tax;
   int? orderCount;
   int? isActive;
+  int? isBidding;
   int? isFavorite;
   int? ratingCount;
   double? avgRating;
@@ -109,6 +110,7 @@ class Service {
         this.tax,
         this.orderCount,
         this.isActive,
+        this.isBidding,
         this.isFavorite,
         this.ratingCount,
         this.avgRating,
@@ -136,6 +138,7 @@ class Service {
     tax = double.tryParse(json['tax'].toString());
     orderCount = json['order_count'];
     isActive = json['is_active'];
+    isBidding = json['is_bidding'];
     isFavorite = json['is_favorite'];
     ratingCount = json['rating_count'];
     avgRating = json['avg_rating'].toDouble();
@@ -190,6 +193,7 @@ class Service {
     data['tax'] = tax;
     data['order_count'] = orderCount;
     data['is_active'] = isActive;
+    data['is_bidding'] = isBidding;
     data['is_favorite'] = isFavorite;
     data['rating_count'] = ratingCount;
     data['avg_rating'] = avgRating;

@@ -156,13 +156,25 @@ class ServiceWidgetVertical extends StatelessWidget {
               alignment:Get.find<LocalizationController>().isLtr ? Alignment.bottomRight : Alignment.bottomLeft,
               child: Stack(
                 children: [
+                  // Padding(
+                  //   padding: const EdgeInsets.all(Dimensions.paddingSizeSmall),
+                  //   child: Icon(Icons.add,
+                  //     color: Get.isDarkMode? Theme.of(context).primaryColorLight : Theme.of(context).primaryColor,
+                  //     size: Dimensions.paddingSizeExtraLarge,
+                  //   ),
+                  // ),
+
+                  // updated above by naresh to hide add to cart for bidding services
+                  service.isBidding == 0 ?
                   Padding(
                     padding: const EdgeInsets.all(Dimensions.paddingSizeSmall),
                     child: Icon(Icons.add,
                       color: Get.isDarkMode? Theme.of(context).primaryColorLight : Theme.of(context).primaryColor,
                       size: Dimensions.paddingSizeExtraLarge,
                     ),
-                  ),
+                  ) : const SizedBox(),
+                  // closed
+
                   Positioned.fill(child: RippleButton(onTap: () {
                     showModalBottomSheet(
                         useRootNavigator: true,

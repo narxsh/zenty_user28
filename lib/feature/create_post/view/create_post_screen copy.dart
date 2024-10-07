@@ -2,9 +2,7 @@ import 'package:demandium/utils/core_export.dart';
 import 'package:get/get.dart';
 
 class CreatePostScreen extends StatefulWidget {
-  final String? categoryId;
-  final String? serviceId;
-  const CreatePostScreen({super.key, this.categoryId, this.serviceId}) ;
+  const CreatePostScreen({super.key}) ;
 
   @override
   State<CreatePostScreen> createState() => _CreatePostScreenState();
@@ -14,16 +12,8 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
 
   late JustTheController tooltipController;
 
-  late String? categoryId;
-  late String? serviceId;
-
   @override
   void initState() {
-
-     // Fetch parameters from GetX route parameters
-    categoryId = Get.parameters['categoryid'];
-    serviceId = Get.parameters['serviceid'];
-
     super.initState();
     Get.find<CategoryController>().getCategoryList(1,false);
     Get.find<ScheduleController>().resetSchedule();
